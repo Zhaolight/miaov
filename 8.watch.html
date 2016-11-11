@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    firstName:<input id="inputs" type="text" v-model="firstName"/><br/>
+    lastName:<input type="text" v-model="lastName"/><br/>
+    fullname:{{fullname}}
+
+    fullname2:{{ fullname2 }}
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     *watch：
+     *        { [key: string]: string | Function | Object }
+     *        一个对象，键是需要观察的表达式，值是对应回调函数。
+     *        值也可以是方法名，或者包含选项的对象。Vue 实例将会在实例化时调用 $watch()，
+     *        遍历 watch 对象的每一个属性。
+     * */
+    var vm = new Vue({
+        el: '#demo ',
+        data: {
+            message: "哈哈哈哈哈hahah",
+            firstName: '邢',
+            lastName: "会翠",
+            fullname: "邢会翠"
+        },
+        watch: {
+            firstName: function (value) {
+                this.fullname = value + this.lastName;
+            },
+            lastName: function (newValue, oldValue) {
+                console.log(newValue, oldValue);
+                this.fullname = this.firstName + newValue;
+            },
+            computed: {
+                fullname2: function () {
+                    return this.firstName + this.lastName;
+                }
+            }
+        }
+    });
+</script>
+</html>

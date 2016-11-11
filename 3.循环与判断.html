@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="app-3">
+    <p v-if="haha">你现在可以看到我哟</p>
+</div>
+
+<div id="app-4">
+    <ol>
+        <li v-for="m in todos">
+            {{ m.text }}
+        </li>
+    </ol>
+</div>
+<div id="demo">
+    <ul>
+        <li v-for="(item,index) of list" :key="index">
+            {{index}}{{item}}
+        </li>
+    </ul>
+
+
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     * 1 .v-if=''属性值为真时效果为显示；反之为隐藏；
+     * 2 .<li v-for="todo in todos">
+     语法解析：<标签 v-for="m in datakeysObj ">{{m.datakeysObj.key}}<标签>
+     data:  {
+     datakeysObj: [
+             { text: 'Learn JavaScript' },
+             { text: 'Learn Vue' },
+             { text: 'Build something awesome' }
+            ]
+        }
+     可以实时控制数据实现页面同步：比如vm.datakeysArr.push({text:'new item'});
+
+
+     *
+     *
+     *
+     * */
+    var vm = new Vue(
+            {
+                el: '#app-3',
+                data: {
+                    haha: true
+                }
+            }
+    );
+    var vm2 = new Vue(
+            {
+                el: "#app-4",
+                data: {
+                    todos: [
+                        {text: 'first'},
+                        {text: 'second'},
+                        {text: 'third'},
+                        {text: 'fourth'},
+                        {text: 'fifth'}
+                    ]
+                }
+            }
+    );
+
+    var vm3 = new Vue({
+        el:'#demo',
+        data:{
+            list:[1,2,3,4,5]
+        }
+
+    })
+
+
+</script>
+</html>

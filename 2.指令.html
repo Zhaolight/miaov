@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    /*
+     *v-bind 缩写：即直接写：+后面的属性=；：style=''
+     * <a v-bind:href="url"></a>
+     * <a :href="url"></a>
+     *v-on 缩写：写@+事件名：@lick=
+     * 1 .v-bind:title="message":绑定属性
+          v-bind你看到的 v-bind 属性被称为指令。指令带有前缀 v-，以表示它们是 Vue.js 提供的特殊属性。
+          可能你已经猜到了，它们会在渲染过的 DOM 上应用特殊的响应式行为。这个指令的简单含义是说：
+          将这个元素节点的 title 属性和 Vue 实例的 message 属性绑定到一起。
+          如果绑定的属性有多个值可以写成v-bind:attr="attrObj " 将attrObj写在data里面以键值对对象呈现；
+          data：{
+            attrObj：{
+                        key1：vaue1，
+                        key2：value2
+                    }
+                }
+     * 2.v-if=''属性值为真时渲染；反之不渲染；
+     * 3.v-for=''循环；
+     * 4.v-on：绑定一个监听事件；
+     * 5.v-model="data对象表单中的双向绑定"；调用了data里面的；
+     * 6.v-once当数据改变时，插值处的内容不会更新。
+     * 7.v-html=''输出真正的html；
+     * 8.v-show=''显示隐藏；
+     * 9.v-else=''如果为false时渲染，反之不渲染；
+     *
+     * */
+
+
+</script>
+</html>

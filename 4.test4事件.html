@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="text5">
+    <p>{{message}}</p>
+    <button v-on:click="color">miaoV</button>
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     v-on:事件名=‘vm下的methods对象的函数名key接口reV’
+     * */
+    var vm = new Vue({
+        el: '#text5',
+        data: {
+            message: 'hellow js'
+        },
+        methods: {
+            reV: function () {
+                this.message=this.message.split('').reverse().join('')
+            },
+            color:function(){
+                document.body.style.background='red';//事件接口；
+            }
+        }
+    })
+
+
+</script>
+
+</html>

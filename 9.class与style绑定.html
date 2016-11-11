@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .active {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+
+        .text-danger {
+            border: 20px solid #000;
+        }
+    </style>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div class="static" :class="{ active: isActive, 'text-danger': hasError }">
+    {{message}}
+</div>
+<div id="static" :class="styleObj">
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     *我们可以传给 v-bind:class 一个对象，以动态地切换 class,其样式的改变取决于data里面的属性的真假；
+     *也可以直接绑定一个样式对象；
+     *
+     *
+     *
+     * */
+    var vm = new Vue({
+        el: '.static',
+        data: {
+            isActive: true,
+            hasError: true,
+            message:'吱吱吱吱'
+        }
+    });
+    var vm2 = new Vue({
+        el: '#static',
+        data: {
+            styleObj:{
+                isActive: true,
+                hasError: true
+            }
+        }
+    })
+
+
+</script>
+</html>

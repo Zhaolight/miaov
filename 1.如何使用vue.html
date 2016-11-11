@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    {{myData}}
+</div>
+<div id="app-2">
+    <span v-bind:title="message">
+        鼠标滑在我身上，一会你会看到时间标题哦~
+    </span>
+</div>
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     * 1.vue书写流程：
+     *    01=>引入vue.js;
+     *    02=>创建模板model;(胡子写法)；
+     *    03=>在script中new一个vue实例；var vm=new Vue();括号里面存放一个根对象；根对象的第一个属性为
+     *        el：值为模板的挂载点，值为上述挂载点的id或者其他；
+     *        data：数据接口，值为数据对象；可以先定义好数据，然后传入到data后面直接写数据的名称；注意符号；
+     *
+     *       可以扩展 Vue 构造器，从而用预定义选项创建可复用的组件构造器：
+     *          var MyComponent = Vue.extend(
+     *                              {
+                                     // 扩展选项
+                                    }
+                                )
+                var myComponentInstance = new MyComponent()；
+                尽管可以命令式地创建扩展实例，不过在多数情况下建议将组件构造器注册为一个自定义元素，
+                然后声明式地用在模板中。我们将在后面详细说明组件系统。
+                现在你只需知道所有的 Vue.js 组件其实都是被扩展的 Vue 实例。
+     *
+     *    04=>模板标签可以加属性，属性前可以是呀v-加指令；
+     *
+     *
+     * */
+    var vm = new Vue(
+            {
+                el: '#demo',
+                data: {
+                    myData: '这是我的第一个Vue小页面哟(*^__^*) 嘻嘻……'
+                }
+            }
+    );
+    var datas = {
+        message: '你页面加载时间为：' + new Date()
+    };
+    var vm2 = new Vue({
+        el: '#app-2',
+        data: datas
+    });
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <p>原始数据: "{{ message }}"</p>
+
+    <p>计算后的数据: "{{ reversedMessage }}"</p>
+</div>
+
+<div id="demo">
+    <p>{{message}}</p>
+    <zdy></zdy>
+    <template>
+        <p>123</p>
+    </template>
+</div>
+</body>
+<script type="text/javascript">
+    /*
+     *computed:
+     * 里面可以构造计算函数；该函数将用作属性的vm.函数名的getter；
+     * vm.函数名这个属性，返回的是computed函数计算后的返回值；
+     * 可以理解为该方法用于绑定计算属性的，而其内容依赖于data里面属性，当data里面属性发生改变的时候；
+     * 绑定属性也是要变化的；计算属性的 getter 是干净无副作用的；
+     * methods:也可以实现计算属性的方法效果，然而不同的是,计算属性依赖于它的缓存;
+     * 相比而言，每当重新渲染的时候，method 调用总会执行函数。
+     * 而computed:里面的计算属性只有在data数据改变时才会执行函数。
+     *  Vue.component:扩展组件；
+     *  Vue.component("zdy",{
+                template:"<div>hello</div>"
+            });
+     *上述zdy是自定义标签；测试显示；挂在点的胡子标签内的内容可以被修改成新的内容；zdy自定义标签通过扩展组件的方式被更改
+     *原来的template模板内容未被修改；
+     *
+     *
+     *
+     * */
+    var vm = new Vue({
+        el:'#example',
+        data:{
+            message:'Nihaoya'
+        },
+        computed:{
+            reversedMessage:function(){
+                return this.message.split('').reverse().join('')
+            }
+        }
+    });
+
+    Vue.component("zdy",{
+        template:"<div>hello</div>"
+    });
+    var vm3=new Vue({
+        el:'#demo',
+        data:{
+            message:'666'
+        }
+    })
+</script>
+</html>
